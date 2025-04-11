@@ -1,0 +1,23 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: linear-gradient(to bottom right, #e06388, #ffffff);
+    color: #222;
+    overflow-x: hidden;
+    align-items: center;
+    
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'poppins', sans-serif;
+  }
+  
+  #app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
