@@ -13,9 +13,17 @@ class AnimePopup extends HTMLElement {
         const score = this.getAttribute("score") || "";
         const synopsis = this.getAttribute("synopsis") || "";
         const episodes = this.getAttribute("episodes") || "";
-        const year = this.getAttribute("year") || "";
-        const season = this.getAttribute("season") || "";
+        const year = this.getAttribute("year");
+        const season = this.getAttribute("season");
         const genres = JSON.parse(this.getAttribute("genres") || "[]");
+
+        const yearDisplay = year && year !== "null"
+            ? year
+            : "Lo sentimos, la info del año no está disponible ʕ·ᴥ·ʔ";
+
+        const seasonDisplay = season && season !== "null"
+            ? season
+            : "Lo sentimos, la info de la temporada no está disponible uwu";
 
         this.shadowRoot!.innerHTML = `
             <style>
@@ -124,13 +132,12 @@ class AnimePopup extends HTMLElement {
                     </div>
                     <h3 class="anime-episodes">Episodes: ${episodes}</h3>
                     <div class="anime-meta">
-                        <h3>Year: ${year}, Season: ${season}</h3>
+                        <h3>Year: ${yearDisplay}, Season: ${seasonDisplay}</h3>
                     </div>
                 </div>
             </div>
         `;
 
-        
         this.shadowRoot!.querySelector(".close-btn")?.addEventListener("click", () => {
             this.remove();
         });
